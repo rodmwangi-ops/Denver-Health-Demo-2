@@ -1746,9 +1746,11 @@ module.exports = async function handler(req, res) {
 
     const geminiContents = buildGeminiContents(SYSTEM_PROMPT, context, messages);
 
+    const GEMINI_MODEL = "gemini-flash-latest";
+    
     const url =
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent` +
-      `?key=${encodeURIComponent(apiKey)}`;
+  `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent` +
+  `?key=${encodeURIComponent(apiKey)}`;
 
     const geminiPayload = {
       contents: geminiContents,
@@ -1799,4 +1801,5 @@ module.exports = async function handler(req, res) {
     });
   }
 };
+
 
